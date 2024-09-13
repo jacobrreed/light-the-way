@@ -28,3 +28,25 @@
    - All assets except font must be created by you
  - AI
    - NO AI tools, art, code generation etc
+
+### Scoring
+ - Gameplay
+  - How fun and unique is the gameplay?
+ - Graphics
+   - How does the game look?
+ - Soundtrack SFX
+   - How does the game sound?
+ - Gameboy soul
+   - When you play the game, do you feel that it represents the idea, feel or nostalgia of the GameBoy well?
+ - Quirkiness
+   - How unique, interesting or unusual is the game? Does it do anything new, unusual or fresh?
+ - Secondary Theme Interpretation
+  - Does the game include the Secondary Theme well? Is it particularly original, true or inventive with the restriction?
+
+### Secondary Theme
+#### SPOOKY
+Ghosts, ghouls, and goblins. Liminal spaces, analogue horror, gameboy terror. Strange things and unusual stories. It could be a scary horror, light-hearted haunt or a goofy ghost story. A tale of things that don't quite make sense. Maybe something weird happened to you and it's time to tell the story crouched around the glow of a gameboy screen.
+
+This year we're getting a head start on Spooky Month. Make a creepy, uncanny, or unusual game for GBjam. Then refine it afterwards, ready for October.
+
+What does SPOOKY mean to you?
