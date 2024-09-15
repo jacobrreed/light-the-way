@@ -30,12 +30,22 @@ public class Movement : MonoBehaviour
       // Set animator values for vertical/horizontal
       animator.SetFloat("y", 0);
       animator.SetFloat("x", movement.x);
+      if (movement.x == 1 || movement.x == -1)
+      {
+        animator.SetFloat("lastX", movement.x);
+        animator.SetFloat("lastY", 0);
+      }
     }
     else // if vertical movement is occuring at all, disable horizontal movement
     {
       movement.x = 0; // set to 0 so you can't move horizontally
       animator.SetFloat("x", 0);
       animator.SetFloat("y", movement.y);
+      if (movement.y == 1 || movement.y == -1)
+      {
+        animator.SetFloat("lastY", movement.y);
+        animator.SetFloat("lastX", 0);
+      }
     }
   }
 
