@@ -8,8 +8,8 @@
   - You have like 1 or 2 abilities to kill ghost with cooldowns, cooldowns can be reduced by picking up an item randomly spread around map
   - End goal is to make it to town or something
   - Bonus points if time allows:
-    - when you make it to town you get another ability choice
-    - Map essentially resets or  regenerates but its harder each time like, ghosts move faster or something, or you run out of fuel faster
+	- when you make it to town you get another ability choice
+	- Map essentially resets or  regenerates but its harder each time like, ghosts move faster or something, or you run out of fuel faster
  - Resolution
   - 160px Wide
   - 144px Tall
@@ -18,11 +18,11 @@
   - Max of 4 colors can be display on screen at any given point
  - Controls
   - The following controls:
-    - D pad (up, down, left, right)
-    - A button
-    - B button
-    - Select
-    - Start
+	- D pad (up, down, left, right)
+	- A button
+	- B button
+	- Select
+	- Start
   - You can use any keybinds but they cant be more than the above
  - Assets
    - All assets except font must be created by you

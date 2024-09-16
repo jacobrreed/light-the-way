@@ -31,7 +31,6 @@ func _physics_process(_delta):
 		else:
 			currentFuel = 0
 			fuelChanged.emit(currentFuel)
-		print("CURRENT FUEL: ", currentFuel)
 		$AnimationTree.get("parameters/playback").travel("Walk")
 		$AnimationTree.set("parameters/Idle/blend_position", velocity)
 		$AnimationTree.set("parameters/Walk/blend_position", velocity)
@@ -48,4 +47,3 @@ func _process(delta: float) -> void:
 			currentHealth = 0
 			healthChanged.emit(currentHealth)
 			print("DEAD")
-		print("Current health", currentHealth)
