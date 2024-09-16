@@ -11,5 +11,5 @@
 stream = ExtResource("2_paemw")
 autoplay = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.3, 0.3)
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-5, 307)

@@ -1,0 +1,85 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7nes8eiieo3p"]
+
+[ext_resource type="FontFile" uid="uid://8vwtrax8hke3" path="res://Fonts/Calstone.ttf" id="1_k2cox"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o1hac"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eoj05"]
+bg_color = Color(0.12549, 0.211765, 0.443137, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48imc"]
+bg_color = Color(0.372549, 0.780392, 0.364706, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o1hac")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 61
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="HealthText" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.372549, 0.780392, 0.364706, 1)
+theme_override_fonts/font = ExtResource("1_k2cox")
+theme_override_font_sizes/font_size = 6
+text = "HP"
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_k2cox")
+theme_override_font_sizes/font_size = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_eoj05")
+theme_override_styles/fill = SubResource("StyleBoxFlat_48imc")
+value = 100.0
+
+[node name="FuelText" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.372549, 0.780392, 0.364706, 1)
+theme_override_fonts/font = ExtResource("1_k2cox")
+theme_override_font_sizes/font_size = 6
+text = "Fuel"
+
+[node name="FuelBar" type="ProgressBar" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_k2cox")
+theme_override_font_sizes/font_size = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_eoj05")
+theme_override_styles/fill = SubResource("StyleBoxFlat_48imc")
+value = 100.0
