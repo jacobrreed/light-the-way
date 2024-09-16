@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://tsyjdendm2t"]
+
+[ext_resource type="PackedScene" uid="uid://ic2ymai3qi8e" path="res://Scenes/player.tscn" id="1_l2ikr"]
+[ext_resource type="AudioStream" uid="uid://lpdoh1a2tycl" path="res://Audio/Default.wav" id="2_paemw"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_l2ikr")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_paemw")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.3, 0.3)
