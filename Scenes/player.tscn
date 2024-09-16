@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://ic2ymai3qi8e"]
+[gd_scene load_steps=30 format=3 uid="uid://ic2ymai3qi8e"]
 
-[ext_resource type="Script" path="res://Scripts/Player/movement.gd" id="1_8ycab"]
+[ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_8ycab"]
 [ext_resource type="Texture2D" uid="uid://b3yf2123ssdc7" path="res://Assets/player.png" id="2_yphik"]
 [ext_resource type="PackedScene" uid="uid://b7nes8eiieo3p" path="res://Scenes/ui.tscn" id="3_k7kub"]
+[ext_resource type="Script" path="res://Scripts/Player/ui.gd" id="4_81uju"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_23se7"]
 radius = 102.0
@@ -235,7 +236,6 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_8ycab")
-move_speed = null
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture = ExtResource("2_yphik")
@@ -261,3 +261,7 @@ parameters/Walk/blend_position = Vector2(-0.198268, -0.111111)
 zoom = Vector2(0.08, 0.08)
 
 [node name="UI" parent="." instance=ExtResource("3_k7kub")]
+script = ExtResource("4_81uju")
+
+[connection signal="fuelChanged" from="." to="UI" method="_on_player_fuel_changed"]
+[connection signal="healthChanged" from="." to="UI" method="_on_player_health_changed"]

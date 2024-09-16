@@ -60,11 +60,13 @@ text = "HP"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.211765, 0.52549, 0.560784, 1)
 theme_override_fonts/font = ExtResource("1_k2cox")
 theme_override_font_sizes/font_size = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_eoj05")
 theme_override_styles/fill = SubResource("StyleBoxFlat_48imc")
 value = 100.0
+show_percentage = false
 
 [node name="FuelText" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
@@ -78,8 +80,10 @@ text = "Fuel"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.211765, 0.52549, 0.560784, 1)
 theme_override_fonts/font = ExtResource("1_k2cox")
 theme_override_font_sizes/font_size = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_eoj05")
 theme_override_styles/fill = SubResource("StyleBoxFlat_48imc")
 value = 100.0
+show_percentage = false
