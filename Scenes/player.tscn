@@ -254,7 +254,7 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_j13s4")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Idle/blend_position = Vector2(-0.381818, 0.294872)
+parameters/Idle/blend_position = Vector2(0, 1)
 parameters/Walk/blend_position = Vector2(-0.198268, -0.111111)
 
 [node name="Camera2D" type="Camera2D" parent="."]
