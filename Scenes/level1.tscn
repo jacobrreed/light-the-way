@@ -10,8 +10,17 @@
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_paemw")
+volume_db = -10.0
 autoplay = true
 
+[node name="Ghost3" parent="." node_paths=PackedStringArray("chase_target") instance=ExtResource("3_dhqbt")]
+position = Vector2(343, -120)
+chase_target = NodePath("../Player")
+
+[node name="Ghost2" parent="." node_paths=PackedStringArray("chase_target") instance=ExtResource("3_dhqbt")]
+position = Vector2(-148, -173)
+chase_target = NodePath("../Player")
+
 [node name="Ghost" parent="." node_paths=PackedStringArray("chase_target") instance=ExtResource("3_dhqbt")]
-position = Vector2(-276, -53)
+position = Vector2(-260, -37)
 chase_target = NodePath("../Player")

@@ -47,4 +47,5 @@ autowrap_mode = 1
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_q3u80")
+volume_db = -10.0
 autoplay = true

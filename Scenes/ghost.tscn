@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dt65sbvs00gsc" path="res://Assets/Enemies/ghost_sleep.png" id="2_baywo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fx48s"]
-size = Vector2(15, 18)
+size = Vector2(14, 19)
 
 [sub_resource type="Animation" id="Animation_1ud0b"]
 length = 0.001
@@ -109,7 +109,7 @@ hframes = 2
 vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -2)
+position = Vector2(-1, -2.5)
 shape = SubResource("RectangleShape2D_fx48s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -2,7 +2,6 @@ extends CharacterBody2D
 class_name Player
 
 @export var move_speed: float = 300.0;
-
 var currentHealth: float = 100;
 @export var maxHealth: float = 100;
 var currentFuel: float = 100;
@@ -13,7 +12,7 @@ signal fuelChanged(currentFuel: float);
 signal healthChanged(currentHealth: float);
 @export var healthReductionOnHit: float = 10;
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var input_direction = Vector2(Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"), Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up"))
 
   # No diagonal movement
@@ -26,32 +25,42 @@ func _physics_process(delta):
 	if velocity == Vector2.ZERO:
 		$AnimationTree.get("parameters/playback").travel("Idle")
 	else:
-		var newFuel: float = currentFuel - fuelConsumptionRate
-		if (floor(newFuel) > 0):
-			currentFuel = newFuel
-			fuelChanged.emit(currentFuel)
-		else:
-			currentFuel = 0
-			fuelChanged.emit(currentFuel)
+		set_fuel(fuelConsumptionRate)
 		$AnimationTree.get("parameters/playback").travel("Walk")
 		$AnimationTree.set("parameters/Idle/blend_position", velocity)
 		$AnimationTree.set("parameters/Walk/blend_position", velocity)
 		velocity = input_direction * move_speed
+		ghost_collisions()
 		move_and_slide()
-		# Get collisions
-		for i in get_slide_collision_count():
-			var collision = get_slide_collision(i)
-			var collider = collision.get_collider()
-			var enemy: Ghost = collider as Ghost
-			if enemy:
-				reduce_health(healthReductionOnHit)
-				enemy.queue_free()
+		
+
+func ghost_collisions() -> void:
+	# Get collisions
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		var enemy: Ghost = collider as Ghost
+		if enemy:
+			set_health(healthReductionOnHit)
+			enemy.queue_free()
 
 func _process(delta: float) -> void:
-	if (floor(currentFuel) <= 0):
-		reduce_health(healthWithNoFuelDecayRate * delta)
-			
-func reduce_health(health: float) -> void:
+	if (is_fuel_depleted()):
+		set_health(healthWithNoFuelDecayRate * delta)
+
+func is_fuel_depleted() -> bool:
+	return floor(currentFuel) <= 0
+	
+func set_fuel(fuel: float) -> void:
+	var newFuel: float = currentFuel - fuel
+	if (floor(newFuel) > 0):
+		currentFuel = newFuel
+		fuelChanged.emit(currentFuel)
+	else:
+		currentFuel = 0
+		fuelChanged.emit(currentFuel)
+	
+func set_health(health: float) -> void:
 	var newHealth: float = currentHealth - health
 	if (floor(newHealth) > 0):
 		currentHealth = newHealth
