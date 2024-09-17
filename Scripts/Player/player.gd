@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 @export var move_speed: float = 300.0;
 
@@ -10,8 +11,9 @@ var currentFuel: float = 100;
 @export var healthWithNoFuelDecayRate: float = 4;
 signal fuelChanged(currentFuel: float);
 signal healthChanged(currentHealth: float);
+@export var healthReductionOnHit: float = 10;
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	var input_direction = Vector2(Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"), Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up"))
 
   # No diagonal movement
@@ -36,14 +38,25 @@ func _physics_process(_delta):
 		$AnimationTree.set("parameters/Walk/blend_position", velocity)
 		velocity = input_direction * move_speed
 		move_and_slide()
+		# Get collisions
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			var collider = collision.get_collider()
+			var enemy: Ghost = collider as Ghost
+			if enemy:
+				reduce_health(healthReductionOnHit)
+				enemy.queue_free()
 
 func _process(delta: float) -> void:
 	if (floor(currentFuel) <= 0):
-		var newHealth: float = currentHealth - healthWithNoFuelDecayRate * delta
-		if (floor(newHealth) > 0):
-			currentHealth = newHealth
-			healthChanged.emit(currentHealth)
-		else:
-			currentHealth = 0
-			healthChanged.emit(currentHealth)
-			print("DEAD")
+		reduce_health(healthWithNoFuelDecayRate * delta)
+			
+func reduce_health(health: float) -> void:
+	var newHealth: float = currentHealth - health
+	if (floor(newHealth) > 0):
+		currentHealth = newHealth
+		healthChanged.emit(currentHealth)
+	else:
+		currentHealth = 0
+		healthChanged.emit(currentHealth)
+		print("DEAD")

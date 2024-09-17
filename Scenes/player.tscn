@@ -1,13 +1,13 @@
 [gd_scene load_steps=30 format=3 uid="uid://ic2ymai3qi8e"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_8ycab"]
-[ext_resource type="Texture2D" uid="uid://b3yf2123ssdc7" path="res://Assets/player.png" id="2_yphik"]
+[ext_resource type="Texture2D" uid="uid://b3yf2123ssdc7" path="res://Assets/Player/player.png" id="2_yphik"]
 [ext_resource type="PackedScene" uid="uid://b7nes8eiieo3p" path="res://Scenes/ui.tscn" id="3_k7kub"]
 [ext_resource type="Script" path="res://Scripts/Player/ui.gd" id="4_81uju"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_23se7"]
-radius = 102.0
-height = 304.0
+radius = 8.0
+height = 26.0
 
 [sub_resource type="Animation" id="Animation_pyv0w"]
 length = 0.001
@@ -243,7 +243,6 @@ hframes = 4
 vframes = 6
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-position = Vector2(-5, 1)
 shape = SubResource("CapsuleShape2D_23se7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -258,7 +257,7 @@ parameters/Idle/blend_position = Vector2(0, 1)
 parameters/Walk/blend_position = Vector2(-0.198268, -0.111111)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.08, 0.08)
+zoom = Vector2(0.5, 0.5)
 
 [node name="UI" parent="." instance=ExtResource("3_k7kub")]
 script = ExtResource("4_81uju")
